@@ -2,13 +2,29 @@
 <head>
 	<title>My Phaser Landscape Mobile Template</title>
 	<meta charset="utf-8">
-	<script src="phaser.min.js"></script>
+	<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
+	<script src="js/phaser.min.js"></script>
 	<script src="src/Boot.js"></script>
 	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
 	<script src="src/Game.js"></script>
 </head>
 <body>
-     
+	<div id="game"></div>
+	<div id="orientation"></div>
+	<script type="text/javascript">
+	(function () {
+
+	var game = new Phaser.Game(1024, 768, Phaser.AUTO, 'game');
+
+	game.state.add('Boot', MyGame.Boot);
+	game.state.add('Preloader', MyGame.Preloader);
+	game.state.add('MainMenu', MyGame.MainMenu);
+	game.state.add('Game', MyGame.Game);
+
+	game.state.start('Boot');
+
+    })();
+</script>
 </body>
 </html>
